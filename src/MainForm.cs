@@ -21,15 +21,15 @@
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Extended.Checked = Ini.Read("Settings", nameof(Extended), false);
+            //Extended.Checked = Ini.Read("Settings", nameof(Extended), false);
             UpdateImages(Resources.Symbol);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Extended.Checked == Ini.Read("Settings", nameof(Extended), false))
-                return;
-            Ini.WriteDirect("Settings", nameof(Extended), Extended.Checked);
+            //if (Extended.Checked == Ini.Read("Settings", nameof(Extended), false))
+            //    return;
+            //Ini.WriteDirect("Settings", nameof(Extended), Extended.Checked);
         }
 
         private void Extended_CheckedChanged(object sender, EventArgs e)
@@ -111,9 +111,9 @@
                 extensions.Add(imageEncoders[i].FilenameExtension.ToLower());
                 var description = imageEncoders[i].CodecName.Substring(8).Replace("Codec", "Files").Trim();
                 var pattern = extensions[extensions.Count - 1];
-                dialog.Filter = string.Format("{0}{1}{2} ({3})|{3}", dialog.Filter, i > 0 ? "|" : string.Empty, description, pattern);
+                dialog.Filter = string.Format(@"{0}{1}{2} ({3})|{3}", dialog.Filter, i > 0 ? "|" : string.Empty, description, pattern);
             }
-            dialog.Filter = string.Format("{0}|Image Files ({1})|{1}", dialog.Filter, extensions.Join(";"));
+            dialog.Filter = string.Format(@"{0}|Image Files ({1})|{1}", dialog.Filter, extensions.Join(";"));
             dialog.FilterIndex = imageEncoders.Length + 1;
             if (dialog.ShowDialog(this) != DialogResult.OK)
                 return default;
