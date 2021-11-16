@@ -49,8 +49,9 @@
     <StartupObject>ImageToIcon.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SilDev.CSharpLib32">
-      <HintPath>..\refs\SilDev\CSharpLib\SilDev.CSharpLib32.dll</HintPath>
+    <Reference Include="SilDev.CSharpLib32, Version=21.4.23.0, Culture=neutral, PublicKeyToken=63d4f436a9bd2ad4, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\SilDev.CSharpLib32.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
